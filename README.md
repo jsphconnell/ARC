@@ -17,7 +17,7 @@ The src folder will contain the solutions for each task named as follows:
 All solution files can be ran as follows from the python command line:
 
 ```sh
-$ python solution_0ca9ddb6.json path/to/0ca9ddb6.json
+$ python solution_0ca9ddb6.py path/to/0ca9ddb6.json
 ```
 
 Each solution file will output a 2d numpy array containing the output grid for every train and test input from the input json.
