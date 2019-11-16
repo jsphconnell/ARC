@@ -1,10 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Wed Nov 13 13:53:58 2019
-
-@author: Joe
-"""
-
 from arc_utils import read_json, read_input_samples
 import doctest
 import numpy as np
