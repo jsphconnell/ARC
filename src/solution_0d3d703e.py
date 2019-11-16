@@ -1,40 +1,10 @@
-import json
 import numpy as np
 import sys
+import doctest
+from arc_utils import read_json, read_input_samples
 
 
 translations_dict = {1: 5, 2: 6, 3: 4, 4: 3, 5: 1, 6: 3, 8: 9, 9: 8}
-
-
-def read_json(file_path):
-    """
-    Function to read a json file into a data dictionary structure
-    :param file_path: Path and name of json file to read
-    :return: A data dictionary with the json content as dict
-    """
-    with open(file_path) as json_file:
-        data_dict = json.load(json_file)
-    return data_dict
-
-
-def read_input_samples(data_dict):
-    """
-    Function that takes only the input property from the dictionary
-    Ignores train or test and just takes all inputs as equal
-    :param data_dict: data dictionary with the full file input structure loaded
-    :return: a dictionary of just input values
-    """
-    inputs_dict = {}
-    i = 0
-    for train_inputs in data_dict["train"]:
-        inputs_dict[i] = train_inputs["input"]
-        i += 1
-
-    for test_inputs in data_dict["test"]:
-        inputs_dict[i] = test_inputs["input"]
-        i += 1
-
-    return inputs_dict
 
 
 def process_value(v):
@@ -65,6 +35,7 @@ def main(args):
     Main method, executed from command line
     :param args: json file with puzzle to solve
     """
+    doctest.testmod()
     input_json = read_json(args[1])
     inputs_dict = read_input_samples(input_json)
 
