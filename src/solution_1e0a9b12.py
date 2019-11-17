@@ -55,6 +55,10 @@ def solve(input_grid):
     return numpy_grid, output_grid
 
 def main(args):
+    """
+    program entry point.
+    :param args: json format input file name containing the grids to be transformed
+    """
     doctest.testmod()
     input_json = read_json(args[1])
     inputs_dict = read_input_samples(input_json)
