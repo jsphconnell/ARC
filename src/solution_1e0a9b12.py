@@ -19,7 +19,17 @@ def drop_numbers(arr):
            [1, 3, 2, 4],
            [6, 8, 7, 9]])
     """
-    pass
+    modified = False
+    output_grid = np.copy(arr)
+    for (x,y), value in np.ndenumerate(arr):
+        if x < arr.shape[0]-1:
+            if value > 0 and output_grid[x+1][y] == 0:
+                output_grid[x+1][y] = output_grid[x][y]
+                output_grid[x][y] = 0
+                modified = True
+    if modified:
+        output_grid = drop_numbers (output_grid)
+    return output_grid
 
 
 def solve(input_grid):
@@ -31,17 +41,18 @@ def solve(input_grid):
     >>> test_input_grid = [[9, 3, 8, 2], [3, 4, 6, 9]]
     >>> solve(test_input_grid)
     (array([[9, 3, 8, 2],
-           [3, 4, 6, 9]]),
-     array([[9, 3, 8, 2],
+           [3, 4, 6, 9]]), array([[9, 3, 8, 2],
            [3, 4, 6, 9]]))
     >>> test_input_grid = [[9, 3, 8, 2], [3, 0, 6, 0]]
     >>> solve(test_input_grid)
     (array([[9, 3, 8, 2],
-           [3, 4, 6, 9]]),
-     array([[9, 0, 8, 0],
+           [3, 0, 6, 0]]), array([[9, 0, 8, 0],
            [3, 3, 6, 2]]))
     """
-    pass
+    numpy_grid = np.array(input_grid)
+    output_grid = drop_numbers(numpy_grid)
+
+    return numpy_grid, output_grid
 
 def main(args):
     doctest.testmod()
