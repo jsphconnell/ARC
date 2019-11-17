@@ -13,6 +13,19 @@ def handle_red_or_blue_occurrence(numpy_grid, x_pos, y_pos):
     :param x_pos: x position where the blue square was found
     :param y_pos: y position where the blue square was found
     :return: numpy_grid: containing correct output for single input grid
+
+    >>> test_input_grid = np.array([[0, 0, 0],[0, 1, 0],[0, 0, 0]])
+    >>> handle_red_or_blue_occurrence(test_input_grid, 1, 1)
+    array([[0, 7, 0],
+           [7, 1, 7],
+           [0, 7, 0]])
+
+    >>> test_input_grid = np.array([[0, 0, 0],[0, 2, 0],[0, 0, 0]])
+    >>> handle_red_or_blue_occurrence(test_input_grid, 1, 1)
+    array([[4, 0, 4],
+           [0, 2, 0],
+           [4, 0, 4]])
+
     """
     if numpy_grid[x_pos, y_pos] == 1:
         numpy_grid[x_pos - 1, y_pos] = 7
@@ -34,6 +47,12 @@ def solve(input_grid):
     solve is the function called to transform the input values into the expected output values
     :param input_grid: a single input grid from the list of grids
     :return: output_grid: a single output grid in numpy format after processing.
+
+    >>> test_input_grid = [[0, 0, 0],[0, 2, 0],[0, 0, 0]]
+    >>> solve(test_input_grid)
+    array([[4, 0, 4],
+           [0, 2, 0],
+           [4, 0, 4]])
     """
     numpy_grid = np.array(input_grid)
     
