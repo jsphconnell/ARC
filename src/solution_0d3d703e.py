@@ -4,7 +4,7 @@ import doctest
 from arc_utils import read_json, read_input_samples
 
 
-translations_dict = {1: 5, 2: 6, 3: 4, 4: 3, 5: 1, 6: 3, 8: 9, 9: 8}
+translations_dict = {1: 5, 2: 6, 3: 4, 4: 3, 5: 1, 6: 2, 8: 9, 9: 8}
 
 
 def process_value(v):
@@ -30,6 +30,15 @@ def solve(input_grid):
     solve is the function called to transform the input values into the expected output values
     :param input_grid: a single input grid from the list of grids
     :return:tuple - original input grid and transformed output grid
+
+    >>> test_input_grid = [[9, 3, 8, 2], [3, 4, 6, 9]]
+    >>> solve(test_input_grid)
+    ([[9, 3, 8, 2], [3, 4, 6, 9]], array([[8, 4, 9, 6],
+           [4, 3, 2, 8]]))
+    >>> test_input_grid = [[1, 3, 5, 3], [1, 8, 9, 3]]
+    >>> solve(test_input_grid)
+    ([[1, 3, 5, 3], [1, 8, 9, 3]], array([[5, 4, 1, 4],
+           [5, 9, 8, 4]]))
     """
     numpy_grid = np.array(input_grid)
     output_grid = np.zeros(numpy_grid.shape, dtype=int)
