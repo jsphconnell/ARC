@@ -12,6 +12,15 @@ def process_value(v):
     Function to process/transform the cells in the input values to the correct output values
     :param v: current cell value to process
     :return: processed/transformed output value
+
+    >>> process_value(1)
+    5
+    >>> process_value(9)
+    8
+    >>> process_value(7)
+    Traceback (most recent call last):
+        ...
+    KeyError: 7
     """
     return translations_dict[v]
 
