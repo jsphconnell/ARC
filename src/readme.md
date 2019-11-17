@@ -1,5 +1,5 @@
 ### This src directory contains all solution source code for our three selected tasks.
-All tasks and solutions were worked on by @jsphconnell and @Enaitz
+All tasks and solutions were worked on by @jsphconnell and @Enaitz.
 This folder also contains a data folder containing the task json files and also a module named **arc_utils.py** for common code used in each solution.
 
 The three task files we have picked are:
