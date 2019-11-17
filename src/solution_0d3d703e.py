@@ -39,6 +39,11 @@ def solve(input_grid):
     >>> solve(test_input_grid)
     ([[1, 3, 5, 3], [1, 8, 9, 3]], array([[5, 4, 1, 4],
            [5, 9, 8, 4]]))
+    >>> test_input_grid = [[7, 3, 5, 3], [1, 8, 9, 3]]
+    >>> solve(test_input_grid)
+    Traceback (most recent call last):
+        ...
+    KeyError: 7
     """
     numpy_grid = np.array(input_grid)
     output_grid = np.zeros(numpy_grid.shape, dtype=int)
