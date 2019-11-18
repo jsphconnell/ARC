@@ -6,7 +6,7 @@ import sys
 
 def handle_red_or_blue_occurrence(numpy_grid, x_pos, y_pos):
     """
-    Function that handles the occurrence of finding a "red" or "blue" square in the input grid.
+    Function that handles the occurrence of finding a "red(2)" or "blue(1)" square in the input grid.
     If a Blue square is found, processes the grid and adds an orange square in set positions around it
     If a red square is found, processes the grid and adds a yellow square in set positions around it
     :param numpy_grid: The input grid
@@ -55,8 +55,8 @@ def solve(input_grid):
            [4, 0, 4]])
     """
     numpy_grid = np.array(input_grid)
-    
-    for ix, iy in np.ndindex(numpy_grid.shape):
+
+    for (ix, iy), value in np.ndenumerate(numpy_grid):
         if numpy_grid[ix, iy] == 1 or numpy_grid[ix, iy] == 2:
             output_grid = handle_red_or_blue_occurrence(numpy_grid, ix, iy)
 
