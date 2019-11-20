@@ -57,7 +57,7 @@ def solve(input_grid):
     numpy_grid = np.array(input_grid)
 
     for (ix, iy), value in np.ndenumerate(numpy_grid):
-        if numpy_grid[ix, iy] == 1 or numpy_grid[ix, iy] == 2:
+        if value in [1, 2]:
             output_grid = handle_red_or_blue_occurrence(numpy_grid, ix, iy)
 
     return output_grid
