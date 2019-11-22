@@ -6,13 +6,26 @@ import sys
 
 def handle_red_or_blue_occurrence(numpy_grid, x_pos, y_pos):
     """
-    Function that handles the occurrence of finding a "red" or "blue" square in the input grid.
+    Function that handles the occurrence of finding a "red(2)" or "blue(1)" square in the input grid.
     If a Blue square is found, processes the grid and adds an orange square in set positions around it
     If a red square is found, processes the grid and adds a yellow square in set positions around it
     :param numpy_grid: The input grid
     :param x_pos: x position where the blue square was found
     :param y_pos: y position where the blue square was found
     :return: numpy_grid: containing correct output for single input grid
+
+    >>> test_input_grid = np.array([[0, 0, 0],[0, 1, 0],[0, 0, 0]])
+    >>> handle_red_or_blue_occurrence(test_input_grid, 1, 1)
+    array([[0, 7, 0],
+           [7, 1, 7],
+           [0, 7, 0]])
+
+    >>> test_input_grid = np.array([[0, 0, 0],[0, 2, 0],[0, 0, 0]])
+    >>> handle_red_or_blue_occurrence(test_input_grid, 1, 1)
+    array([[4, 0, 4],
+           [0, 2, 0],
+           [4, 0, 4]])
+
     """
     if numpy_grid[x_pos, y_pos] == 1:
         numpy_grid[x_pos - 1, y_pos] = 7
@@ -34,11 +47,17 @@ def solve(input_grid):
     solve is the function called to transform the input values into the expected output values
     :param input_grid: a single input grid from the list of grids
     :return: output_grid: a single output grid in numpy format after processing.
+
+    >>> test_input_grid = [[0, 0, 0],[0, 2, 0],[0, 0, 0]]
+    >>> solve(test_input_grid)
+    array([[4, 0, 4],
+           [0, 2, 0],
+           [4, 0, 4]])
     """
     numpy_grid = np.array(input_grid)
-    
-    for ix, iy in np.ndindex(numpy_grid.shape):
-        if numpy_grid[ix, iy] == 1 or numpy_grid[ix, iy] == 2:
+
+    for (ix, iy), value in np.ndenumerate(numpy_grid):
+        if value in [1, 2]:
             output_grid = handle_red_or_blue_occurrence(numpy_grid, ix, iy)
 
     return output_grid
